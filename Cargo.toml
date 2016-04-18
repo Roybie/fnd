@@ -1,0 +1,10 @@
+[package]
+name = "fnd"
+version = "0.1.0"
+authors = ["Roy Brunton <roy@flashtalking.com>"]
+
+[dependencies]
+walkdir = "0.1.5"
+getopts = "0.2"
+regex = "0.1"
+ansi_term = "0.7.2"
