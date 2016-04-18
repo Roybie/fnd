@@ -11,6 +11,7 @@ optional flags:
  - r : search as regex
  
 search : part of filename or regex (returns all files if ommited)
+
 dir : dir to search in (current dir if ommited)
 
 eg:
@@ -18,5 +19,5 @@ eg:
 `fnd pizza /`
 returns all files with pizza in the filename on the whole disk.
 
-`fnd -r `\.js$'
+`fnd -r '\.js$'`
 returns all .js files in current dir (and subdirectories)
