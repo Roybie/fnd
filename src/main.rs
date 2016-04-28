@@ -8,6 +8,7 @@ use getopts::Options;
 use regex::Regex;
 use std::env;
 use std::path::PathBuf;
+use std::io;
 use walkdir::{WalkDir, WalkDirIterator};
 
 fn print_usage(opts: Options) {
@@ -38,6 +39,17 @@ fn main() {
         return;
     }
 
+
+    if matches.free.get(0) == None{
+        println!("You are about to list every single file in this directory and its subdirectories.\nWas that your intention?\ny/n");
+        let mut input = String::new();
+
+        match io::stdin().read_line(&mut input) {
+            Ok(_) if input == "y\n" => (),
+            _ => return
+        }
+    }
+
     let mut search = match matches.free.get(0) {
         Some(x) => x.clone(),
         _ => String::from("")
@@ -56,6 +68,7 @@ fn main() {
         Some(d) => PathBuf::from(d),
         _ => env::current_dir().unwrap()
     };
+
 
     let mut walker = WalkDir::new(&dir).into_iter();
 
