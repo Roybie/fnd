@@ -40,7 +40,7 @@ fn main() {
     }
 
 
-    if matches.free.get(0) == None{
+    if matches.free.get(0) == None {
         println!("You are about to list every single file in this directory and its subdirectories.\nWas that your intention?\ny/n");
         let mut input = String::new();
 
